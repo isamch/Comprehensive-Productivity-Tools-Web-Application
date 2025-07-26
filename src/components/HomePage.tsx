@@ -39,7 +39,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
   });
 
   useEffect(() => {
-    // Load statistics from localStorage
     const notes = getFromLocalStorage<unknown[]>('notes', []);
     const todos = getFromLocalStorage<unknown[]>('todos', []);
     const bookmarks = getFromLocalStorage<unknown[]>('bookmarks', []);
@@ -55,10 +54,8 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       totalShoppingItems: shoppingList.length,
     });
 
-    // Generate recent activities
     const activities: RecentActivity[] = [];
 
-    // Recent notes
     notes.slice(0, 3).forEach((note: unknown) => {
       const n = note as { id: string; title?: string; updatedAt: string };
       activities.push({
@@ -72,7 +69,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       });
     });
 
-    // Recent todos
     todos.slice(0, 3).forEach((todo: unknown) => {
       const t = todo as { id: string; text: string; completed: boolean; createdAt: string };
       activities.push({
@@ -86,7 +82,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       });
     });
 
-    // Recent bookmarks
     bookmarks.slice(0, 2).forEach((bookmark: unknown) => {
       const b = bookmark as { id: string; title: string; createdAt: string };
       activities.push({
@@ -100,7 +95,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       });
     });
 
-    // Recent contacts
     contacts.slice(0, 2).forEach((contact: unknown) => {
       const c = contact as { id: string; name: string; createdAt: string };
       activities.push({
@@ -114,7 +108,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       });
     });
 
-    // Sort by timestamp and take the most recent
     activities.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
     setRecentActivities(activities.slice(0, 8));
   }, []);
@@ -160,7 +153,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Welcome Header */}
       <div className="text-center py-8 sm:py-12">
         <div className="mb-4 sm:mb-6">
           <div className="text-4xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2 sm:mb-4">
@@ -176,7 +168,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
         </div>
       </div>
 
-      {/* Quick Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg">
           <div className="text-xl sm:text-2xl lg:text-3xl font-bold">{stats.totalNotes}</div>
@@ -204,7 +195,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
         </div>
       </div>
 
-      {/* Quick Actions */}
       <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
         <div className="flex items-center mb-6">
           <Zap size={24} className="mr-3 text-yellow-500" />
@@ -231,7 +221,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-        {/* Recent Activity */}
         <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
@@ -265,7 +254,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
           )}
         </div>
 
-        {/* Productivity Tips */}
         <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
           <div className="flex items-center mb-6">
             <Star size={24} className="mr-3 text-yellow-500" />
@@ -296,7 +284,6 @@ const HomePage: React.FC<HomePageProps> = ({ setActiveToolId }) => {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="text-center py-8 text-gray-500">
         <p className="text-sm">Built with ❤️ for productivity enthusiasts</p>
         <p className="text-xs mt-2">All data is stored locally in your browser</p>

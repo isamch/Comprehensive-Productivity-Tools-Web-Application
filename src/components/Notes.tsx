@@ -79,7 +79,6 @@ const Notes: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row h-full gap-6">
-      {/* Notes List */}
       <div className="lg:w-1/3 lg:pr-6 lg:border-r border-gray-200">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <h3 className="text-lg font-semibold text-gray-800">All Notes</h3>
@@ -128,7 +127,6 @@ const Notes: React.FC = () => {
         </div>
       </div>
 
-      {/* Note Editor */}
       <div className="flex-1 lg:pl-6 mt-6 lg:mt-0">
         {selectedNote ? (
           <div className="h-full">

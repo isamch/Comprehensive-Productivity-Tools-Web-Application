@@ -34,7 +34,6 @@ const URLShortener: React.FC = () => {
 
     const shortCode = customCode.trim() || generateShortCode();
     
-    // Check if custom code already exists
     if (urls.some(url => url.shortCode === shortCode)) {
       alert('This short code already exists. Please choose a different one.');
       return;
@@ -72,7 +71,6 @@ const URLShortener: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* URL Shortener Form */}
       <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl mb-8 border border-blue-100">
         <div className="flex items-center mb-6">
           <Link size={32} className="mr-3 text-blue-600" />
@@ -117,7 +115,6 @@ const URLShortener: React.FC = () => {
         </div>
       </div>
 
-      {/* URL List */}
       <div className="space-y-4">
         <h3 className="text-xl font-semibold text-gray-800 mb-4">Your Shortened URLs</h3>
         

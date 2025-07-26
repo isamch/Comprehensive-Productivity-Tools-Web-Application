@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Copy, BarChart3 } from 'lucide-react';
+import { Copy, BarChart3 } from 'lucide-react';
 
 interface TextStats {
   characters: number;
@@ -44,7 +44,7 @@ const WordCounter: React.FC = () => {
       const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
       const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
       const averageWordsPerSentence = sentences > 0 ? words / sentences : 0;
-      const readingTime = Math.ceil(words / 200); // Average reading speed: 200 words per minute
+      const readingTime = Math.ceil(words / 200);
 
       setStats({
         characters,
@@ -90,7 +90,6 @@ You can use this for analyzing essays, articles, blog posts, or any other writte
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Text Input */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex justify-between items-center mb-4">
@@ -119,9 +118,7 @@ You can use this for analyzing essays, articles, blog posts, or any other writte
           </div>
         </div>
 
-        {/* Statistics */}
         <div className="space-y-6">
-          {/* Quick Stats */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-800">Statistics</h3>
@@ -157,7 +154,6 @@ You can use this for analyzing essays, articles, blog posts, or any other writte
             </div>
           </div>
 
-          {/* Advanced Stats */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center mb-4">
               <BarChart3 size={20} className="mr-2 text-gray-600" />
@@ -177,7 +173,6 @@ You can use this for analyzing essays, articles, blog posts, or any other writte
             </div>
           </div>
 
-          {/* Visual Stats */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Visual Breakdown</h3>
             <div className="space-y-3">

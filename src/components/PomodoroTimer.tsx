@@ -34,7 +34,7 @@ const PomodoroTimer: React.FC = () => {
   });
   
   const [showSettings, setShowSettings] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
     const savedSettings = getFromLocalStorage<PomodoroSettings>('pomodoroSettings', settings);
@@ -57,7 +57,6 @@ const PomodoroTimer: React.FC = () => {
       intervalRef.current = setInterval(() => {
         setState(prev => {
           if (prev.timeLeft <= 1) {
-            // Time's up, switch modes
             const newCompletedSessions = prev.mode === 'work' ? prev.completedSessions + 1 : prev.completedSessions;
             const newTotalSessions = prev.mode === 'work' ? prev.totalSessions + 1 : prev.totalSessions;
             
@@ -154,7 +153,6 @@ const PomodoroTimer: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto text-center">
-      {/* Settings Modal */}
       {showSettings && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
@@ -226,7 +224,6 @@ const PomodoroTimer: React.FC = () => {
         </div>
       )}
 
-      {/* Timer Display */}
       <div className={`bg-gradient-to-br ${modeConfig.bgColor} p-8 rounded-2xl mb-8`}>
         <div className="flex items-center justify-center mb-4">
           <ModeIcon size={32} className="mr-3" />
@@ -273,7 +270,6 @@ const PomodoroTimer: React.FC = () => {
         </div>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-white p-6 rounded-lg border">
           <div className="text-3xl font-bold text-blue-600 mb-2">

@@ -63,14 +63,12 @@ function App() {
   const activeTool = tools.find(tool => tool.id === activeToolId);
   const ActiveComponent = activeTool?.component || HomePage;
 
-  // Pass setActiveToolId to HomePage if it is the active component
   const mainContent = activeToolId === 'home'
     ? <HomePage setActiveToolId={setActiveToolId} />
     : <ActiveComponent />;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Mobile Menu Button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -80,7 +78,6 @@ function App() {
         </button>
       </div>
 
-      {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-40 w-72 sm:w-80 bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-4 sm:p-6 border-b border-gray-200">
           <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -113,11 +110,9 @@ function App() {
         </nav>
       </div>
 
-      {/* Main Content */}
       <div className="lg:ml-72 xl:ml-80 min-h-screen">
         <div className="p-4 sm:p-6">
           <div className="max-w-7xl mx-auto">
-            {/* Header - Hidden on home page */}
             {activeToolId !== 'home' && (
               <div className="mb-6 sm:mb-8 mt-12 lg:mt-0">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
@@ -127,7 +122,6 @@ function App() {
               </div>
             )}
 
-            {/* Tool Component */}
             <div className={`${activeToolId === 'home' ? 'mt-12 lg:mt-0' : 'bg-white rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8'} min-h-[600px]`}>
               {mainContent}
             </div>
@@ -135,7 +129,6 @@ function App() {
         </div>
       </div>
 
-      {/* Overlay for mobile */}
       {sidebarOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"

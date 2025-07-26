@@ -105,7 +105,6 @@ const BookmarksManager: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">Bookmarks Manager</h2>
@@ -120,7 +119,6 @@ const BookmarksManager: React.FC = () => {
         </button>
       </div>
 
-      {/* Search and Filter */}
       <div className="flex gap-4 mb-6">
         <div className="flex-1 relative">
           <Search size={20} className="absolute left-3 top-3 text-gray-400" />
@@ -145,7 +143,6 @@ const BookmarksManager: React.FC = () => {
         </select>
       </div>
 
-      {/* Add/Edit Form */}
       {showForm && (
         <div className="bg-gray-50 p-6 rounded-lg mb-6 border">
           <h3 className="text-lg font-semibold mb-4">
@@ -220,7 +217,6 @@ const BookmarksManager: React.FC = () => {
         </div>
       )}
 
-      {/* Bookmarks Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredBookmarks.map((bookmark) => (
           <div key={bookmark.id} className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">

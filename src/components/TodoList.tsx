@@ -72,7 +72,6 @@ const TodoList: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Header Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 sm:mb-8">
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 sm:p-6 rounded-lg">
           <div className="text-xl sm:text-2xl font-bold">{todos.length}</div>
@@ -88,7 +87,6 @@ const TodoList: React.FC = () => {
         </div>
       </div>
 
-      {/* Add Todo Form */}
       <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-6">
         <div className="flex flex-col sm:flex-row gap-4">
           <input
@@ -121,7 +119,6 @@ const TodoList: React.FC = () => {
         </div>
       </div>
 
-      {/* Filter Buttons */}
       <div className="flex justify-center mb-6">
         <div className="flex bg-gray-100 rounded-lg p-1 text-sm sm:text-base">
           {(['all', 'active', 'completed'] as const).map((filterType) => (
@@ -140,7 +137,6 @@ const TodoList: React.FC = () => {
         </div>
       </div>
 
-      {/* Todo List */}
       <div className="space-y-3">
         {filteredTodos.map((todo) => (
           <div

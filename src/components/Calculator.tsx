@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Delete, RotateCcw } from 'lucide-react';
 
 const Calculator: React.FC = () => {
   const [display, setDisplay] = useState('0');
@@ -113,7 +112,6 @@ const Calculator: React.FC = () => {
   return (
     <div className="max-w-sm mx-auto">
       <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6">
-        {/* Display */}
         <div className="bg-gray-900 text-white p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
           <div className="text-right">
             {operation && previousValue !== null && (
@@ -127,7 +125,6 @@ const Calculator: React.FC = () => {
           </div>
         </div>
 
-        {/* Buttons */}
         <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {buttons.map((button, index) => (
             <button
@@ -140,7 +137,6 @@ const Calculator: React.FC = () => {
           ))}
         </div>
 
-        {/* History placeholder */}
         <div className="mt-4 sm:mt-6 text-center text-gray-500 text-xs sm:text-sm">
           <p>Simple Calculator</p>
           <p>Supports basic arithmetic operations</p>
